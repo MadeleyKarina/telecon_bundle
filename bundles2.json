@@ -1,0 +1,54 @@
+
+[{"bb":[{
+    "id":"bb0",
+    "name":"Broadband1",
+    "price":40,
+     "edges":[{"id":"ll0", "extraPrice":-5},{"id":"ad0", "extraPrice":10}]
+     },
+     {
+    "id":"bb1",
+    "name":"Broadband2",
+    "price":60,
+    "edges":[{"id":"tv0", "extraPrice":-10},{"id":"tv1", "extraPrice":-20},{"id":"ll0", "extraPrice":-10},{"id":"ad0", "extraPrice":10}]
+     }]},
+  {"tv":[{
+    "id":"tv0",
+    "name":"TV1",
+    "price":50,
+    "edges":[{"id":"ll0", "extraPrice":-10},{"id":"ad1", "extraPrice":35}]
+  },
+  {
+    "id":"tv1",
+    "name":"TV2",
+    "price":120,
+    "edges":[{"id":"ll0", "extraPrice":-30},{"id":"ad1", "extraPrice":15}]
+  }]},
+  {"ll":[{
+    "id":"ll0",
+    "name":"Landline1",
+    "price":35,
+    "edges":[]
+  }]},
+  { "addon":[{
+     "id":"ad0",
+     "name":"AddonBB",
+     "price":0,
+    "edges":[]},
+     {
+      "id":"ad1",
+      "name":"AddonTV",
+      "price":0,
+      "edges":[{"id":"adE2", "extraPrice":10}]
+  },
+     {
+      "id":"adE2",
+      "name":"AddonTV-Ex1", 
+      "price": 0,
+          "edges":[{"id":"adE3", "extraPrice":5}]
+  },
+     {
+      "id":"adE3",
+      "name":"AddonTV-Ex2",
+      "price": 0,
+    "edges":[]}
+   ]}]
