@@ -23,22 +23,27 @@ class App extends Component {
   render() {
     const allBundles = this.state.response.map(bundle => {
       return(
-        <div className = 'col-md-4'>
-          <div className='card mt-4' > 
-            <div className = 'card-body'>
-              <p>{bundle.services.map(service => {return <div><mark>{service}</mark></div>})}</p> 
-              <div className = 'card-header'>
+        <div className = "col-sm-4 py-2">
+          <div className='card h-100 mt-4 card-body ' border-variant="secondary"> 
+           
+              <p>{bundle.services.map(service => {return <div className="card-subtitle mb-2 text-muted">{service}</div>})}</p> 
+              <div className = 'card-header align-bottom' slot="footer">
                 Price : 
                 <span className = 'badge badge-danger ml-2'>
                  {bundle.price} 
                 </span>
               </div>
-            </div>
+            
           </div>
         </div>  )}
     )
     return (
       <div className="App">
+       <nav className="navbar navbar-dark bg-dark">
+          <a className="navbar-brand" href="/">
+            Telecom bundle
+          </a>
+        </nav>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
