@@ -8,7 +8,7 @@ var bundles = [];
 var bundle = { services : [] ,
   price : 0
 };
-var connectionValue = 0;
+
 
 function findEdges(idService, bundle, connectionValue){
   var numberService = idService.match(/\d/g);
@@ -25,7 +25,11 @@ function findEdges(idService, bundle, connectionValue){
   }
 }
 
-findEdges("bb0",bundle,connectionValue);
+for(i = 0; i < service.bb.length; i++){
+  var connectionValue = 0;
+  findEdges(service.bb[i].id,bundle,connectionValue);
+}
+//findEdges("bb0",bundle,connectionValue);
 bundles.sort(function(a, b) {
   return a.price -b.price;
 });
