@@ -24,19 +24,19 @@ function findEdges(idService, bundle, connectionValue){
     findEdges(service[typeService][numberService].edges[i].id,copyBundle,addConnectValue);
   }
 }
+var connectionValue = 0;
+// for(i = 0; i < service.bb.length; i++){
+//   var connectionValue = 0;
+//   findEdges(service.bb[i].id,bundle,connectionValue);
+// }
+// //findEdges("bb0",bundle,connectionValue);
+// bundles.sort(function(a, b) {
+//   return a.price -b.price;
+// });
 
-for(i = 0; i < service.bb.length; i++){
-  var connectionValue = 0;
-  findEdges(service.bb[i].id,bundle,connectionValue);
-}
-//findEdges("bb0",bundle,connectionValue);
-bundles.sort(function(a, b) {
-  return a.price -b.price;
-});
-
-console.log('///////////////');
-console.log(bundles);
-console.log('///////////////');
+// console.log('///////////////');
+// console.log(bundles);
+// console.log('///////////////');
 // var j;
 // for(i = 0; i < service.bb.length; i++){
 //   j=0;
@@ -60,8 +60,19 @@ const port = process.env.PORT || 5000;
 
 //app.get('/api/hello', (req, res) => {
 app.get('/api/hello', function(req, res, next) {
-  res.send({ bundles});
+  const serviceSearch = req.query.serviceSearch;
+  console.log(serviceSearch);
+  findEdges(service[serviceSearch][0].id,bundle,connectionValue);
+  console.log(bundles)
+  res.send({bundles});
 });
+// app.get('/api/search',function (req, res) {
+//   const serviceSearch = req.query.serviceSearch;
+//   console.log(serviceSearch);
+//   findEdges(service[serviceSearch][0].id,bundle,connectionValue);
+//   console.log(bundles)
+//   res.send(bundles);
+// });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 module.exports = app;
