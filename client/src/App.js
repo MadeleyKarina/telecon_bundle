@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import SearchBundle from './components/SearchBundle';
 
 class App extends Component {
   constructor(props) {
@@ -16,18 +15,8 @@ class App extends Component {
 
   componentDidMount() {
     this.callApi();
-    // this.callApi()
-    //   .then(res => this.setState({ response: res.bundles }))
-    //   .catch(err => console.log(err));
   }
-  // callApi = async () => {
-  //   const response = await fetch('/api/hello');
-  //   const body = await response.json();
-  //   console.log(body);
-  //   if (response.status !== 200) throw Error(body.message);
 
-  //   return body;
-  // };
   callApi = _ =>{
     const{idService} = this.state;
     fetch(`/api/hello?serviceSearch=${idService}`)
@@ -36,18 +25,17 @@ class App extends Component {
      .catch(err => console.log(err))
   }
 
-onChangeService(e) {
-    this.setState({
-        idService: e.target.value
-    });
-}
-onSubmit(e) {
-    e.preventDefault();
-    console.log(`service is ${this.state.idService}`);
-    this.setState({
-        idService: ''
-    })
-}
+  onChangeService(e) {
+      this.setState({
+          idService: e.target.value
+      });
+  }
+  onSubmit(e) {
+      e.preventDefault();
+      this.setState({
+          idService: ''
+      })
+  }
 
   render() {
     const allBundles = this.state.response.map((bundle, index) => {

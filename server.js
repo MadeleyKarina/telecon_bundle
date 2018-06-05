@@ -21,7 +21,6 @@ function findEdges(idService, bundle, connectionValue){
   copyBundle.price = copyBundle.price + service[type][number].price + connectionValue;
   bundles.push(copyBundle);
   for(var i = 0; i < service[type][number].edges.length; i++){
-    console.log(service[type][number].edges[i].id,service[type][number].edges.length);
     var addConnectValue = service[type][number].edges[i].extraPrice;
     findEdges(service[type][number].edges[i].id,copyBundle,addConnectValue);
   }
@@ -39,60 +38,20 @@ function listBundles(typeService){
   }
   bundles = sortByPrice(bundles);
 }
-// tService = 'bb';
-// console.log('length',service[tService].length)
-// listBundles('bb');
-// console.log(bundles)
-var connectionValue = 0;
-// for(i = 0; i < service.bb.length; i++){
-//   var connectionValue = 0;
-//   findEdges(service.bb[i].id,bundle,connectionValue);
-// }
-// //findEdges("bb0",bundle,connectionValue);
-// bundles.sort(function(a, b) {
-//   return a.price -b.price;
-// });
 
-// console.log('///////////////');
-// console.log(bundles);
-// console.log('///////////////');
-// var j;
-// for(i = 0; i < service.bb.length; i++){
-//   j=0;
-//   while(service.bb[i].edges.length != 0 && j < service.bb[i].edges.length){
-//     var bundle = { services : [] ,
-//       price : 0
-//     };
-//     bundle.services.push(service.bb[i].id,service.bb[i].edges[j].id);
-//     bundle.price = bundle.price + service.bb[i].edges[j].extraPrice + service.bb[i].price;
-//     var copyBundle = clone(bundle);
-//     bundles.push(copyBundle);
-//     j++;
-//   }
-// }//console.log('bundlessssss');
-//console.log(bundles);
+var connectionValue = 0;
 
 const express = require('express');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-//app.get('/api/hello', (req, res) => {
+
 app.get('/api/hello', function(req, res, next) {
   const serviceSearch = req.query.serviceSearch;
-  console.log(serviceSearch);
   listBundles(serviceSearch);
-  //findEdges(service[serviceSearch][0].id,bundle,connectionValue);
-  console.log(bundles)
   res.send({bundles});
 });
-// app.get('/api/search',function (req, res) {
-//   const serviceSearch = req.query.serviceSearch;
-//   console.log(serviceSearch);
-//   findEdges(service[serviceSearch][0].id,bundle,connectionValue);
-//   console.log(bundles)
-//   res.send(bundles);
-// });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 module.exports = app;
