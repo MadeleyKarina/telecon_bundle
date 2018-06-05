@@ -17,9 +17,9 @@ class App extends Component {
     this.callApi();
   }
 
-  callApi = _ =>{
+  callApi = _ => {
     const{idService} = this.state;
-    fetch(`/api/hello?serviceSearch=${idService}`)
+    fetch(`/list-all?serviceSearch=${idService}`)
      .then(response => response.json())
      .then(response => this.setState({ response: response.bundles }))
      .catch(err => console.log(err))
@@ -64,7 +64,7 @@ class App extends Component {
               <div className = "col md-4 text-center">
               <img src={logo} className="App-logo" alt="logo" />
               <div style={{marginTop: 50}}>
-                <h3>Add New Server</h3>
+                <h3>Query Telecom Service </h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Look for service:  </label>
