@@ -67,13 +67,18 @@ class App extends Component {
                 <h3>Query Telecom Service </h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Look for service:  </label>
+                        <label>Enter your service Id:  </label>
                         <input type="text" value={this.state.idService} className="form-control" 
                         onChange={this.onChangeService}/>
                     </div>
                     <div className="form-group">
                         <button onClick={this.callApi} className="btn btn-primary">search</button>
                     </div>
+                    <ul className="list-group">
+                          <li>BroandBand: bb </li>
+                          <li>TV: tv</li>
+                          <li>Landline: ll</li>
+                    </ul>
                 </form>
               </div>
               </div>
